@@ -285,7 +285,7 @@ if __name__ == "__main__":
     logger.info(args)
     device = torch.device("cuda:" + str(args.gpu) if torch.cuda.is_available() else "cpu")
     logger.info(device)
-
+    print(device)
     wandb.init(
         project="fedml",
         name="FedAVG-r" + str(args.comm_round) + "-e" + str(args.epochs) + "-lr" + str(args.lr),
