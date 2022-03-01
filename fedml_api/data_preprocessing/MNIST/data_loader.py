@@ -31,10 +31,10 @@ def read_data(train_data_dir, test_data_dir):
         file_path = os.path.join(train_data_dir, f)
         with open(file_path, 'r') as inf:
             cdata = json.load(inf)
-        clients.extend(cdata['users'])
+        clients.extend(cdata['users']) # List extension
         if 'hierarchies' in cdata:
             groups.extend(cdata['hierarchies'])
-        train_data.update(cdata['user_data'])
+        train_data.update(cdata['user_data'])   # Dictionary extension
 
     test_files = os.listdir(test_data_dir)
     test_files = [f for f in test_files if f.endswith('.json')]
@@ -100,7 +100,7 @@ def load_partition_data_mnist(batch_size,
     test_data_global = list()
     client_idx = 0
     logging.info("loading data...")
-    for u, g in zip(users, groups):
+    for u, g in zip(users, groups): # zip is used to iterate multiple lists
         user_train_data_num = len(train_data[u]['x'])
         user_test_data_num = len(test_data[u]['x'])
         train_data_num += user_train_data_num

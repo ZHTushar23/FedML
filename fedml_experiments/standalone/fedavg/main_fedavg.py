@@ -276,16 +276,19 @@ def custom_model_trainer(args, model):
 
 
 if __name__ == "__main__":
+    # Logging segment
     logging.basicConfig()
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
 
+    # Parsing arguments
     parser = add_args(argparse.ArgumentParser(description='FedAvg-standalone'))
     args = parser.parse_args()
     logger.info(args)
     device = torch.device("cuda:" + str(args.gpu) if torch.cuda.is_available() else "cpu")
     logger.info(device)
-    print(device)
+
+    # A website to log and visualize results
     wandb.init(
         project="fedml",
         name="FedAVG-r" + str(args.comm_round) + "-e" + str(args.epochs) + "-lr" + str(args.lr),
