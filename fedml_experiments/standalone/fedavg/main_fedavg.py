@@ -112,6 +112,7 @@ def load_data(args, dataset_name):
         For shallow NN or linear models, 
         we uniformly sample a fraction of clients each round (as the original FedAvg paper)
         """
+        print("Total clients in Mnist is ",client_num)
         args.client_num_in_total = client_num
 
     elif dataset_name == "femnist":

@@ -81,6 +81,9 @@ class FedAvgAPI(object):
                     self._local_test_on_all_clients(round_idx)
 
     def _client_sampling(self, round_idx, client_num_in_total, client_num_per_round):
+        '''
+        returns a list of numbers. It is used to mimic the phenomenon of randomly selecting some clients from all the clients.
+        '''
         if client_num_in_total == client_num_per_round:
             client_indexes = [client_index for client_index in range(client_num_in_total)]
         else:
